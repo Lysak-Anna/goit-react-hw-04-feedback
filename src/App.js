@@ -10,18 +10,25 @@ function App() {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const stateMap = {
+    good: setGood,
+    neutral: setNeutral,
+    bad: setBad,
+  };
+
   function clickHandler(event) {
     const option = event.target.textContent;
-    switch (option) {
-      case 'good':
-        return setGood(good + 1);
-      case 'neutral':
-        return setNeutral(neutral + 1);
-      case 'bad':
-        return setBad(bad + 1);
-      default:
-        return;
-    }
+    stateMap[option](prev => prev + 1);
+    // switch (option) {
+    //   case 'good':
+    //     return setGood(good + 1);
+    //   case 'neutral':
+    //     return setNeutral(neutral + 1);
+    //   case 'bad':
+    //     return setBad(bad + 1);
+    //   default:
+    //     return;
+    // }
   }
 
   function countTotalFeedback() {

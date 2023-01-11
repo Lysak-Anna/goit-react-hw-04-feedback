@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Button } from './FeedbackOptions.styled';
 import { nanoid } from 'nanoid';
+
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
     <div>
